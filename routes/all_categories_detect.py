@@ -14,7 +14,7 @@ def get_all_categories_detect(kategori):
         data_kentang_kembangkol = {
             "idCategory": "21",
             "strCategory": "Kentang & Kembang Kol",
-            "strCategoryThumb": "http://192.168.100.34:5000/img/kentang.png",
+            "strCategoryThumb": "http://192.168.0.192:5000/img/kentang.png",
             "strCategoryDescription": "Description for Kentang & Kembang Kol..."
         }
         response_data["categories"].append(data_kentang_kembangkol)
@@ -22,7 +22,7 @@ def get_all_categories_detect(kategori):
         data_tomat_kentang_kembangkol = {
             "idCategory": "22",
             "strCategory": "Tomat, Kentang & Kembang Kol",
-            "strCategoryThumb": "http://192.168.100.34:5000/img/kentang.png",
+            "strCategoryThumb": "http://192.168.0.192:5000/img/kentang.png",
             "strCategoryDescription": "Description for Tomat, Kentang & Kembang Kol..."
         }
         response_data["categories"].append(data_tomat_kentang_kembangkol)

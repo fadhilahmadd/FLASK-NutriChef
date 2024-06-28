@@ -1,4 +1,5 @@
 import os, json, pymysql
+import random
 from flask import Flask, render_template, request, jsonify, send_from_directory
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
@@ -6,6 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import timedelta
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from features.image_classifier import classify_image
+from flask_mail import Mail, Message
 
 from routes.categories import categories_blueprint
 from routes.meals import meals_blueprint
@@ -47,6 +49,16 @@ def get_db_connection():
         db='nutrichef',
         cursorclass=pymysql.cursors.DictCursor
     )
+
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USERNAME'] = 'fadhilhidayat27@gmail.com'
+app.config['MAIL_PASSWORD'] = 'xppq olrz jsby kiiw'
+app.config['MAIL_DEFAULT_SENDER'] = 'fadhilhidayat27@gmail.com'
+
+mail = Mail(app)
 
 @app.route('/')
 def index():
@@ -317,6 +329,57 @@ def get_user_penyakit():
         print(f"Error fetching user diseases: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
+otp_storage = {}
+
+def generate_otp():
+    return str(random.randint(100000, 999999))
+
+@app.route('/send-otp', methods=['POST'])
+def send_otp():
+    data = request.get_json()
+    email = data.get('email')
+    user = get_user(email)
+
+    if not user:
+        return jsonify({'error': 'Email tidak ditemukan'}), 404
+
+    otp = generate_otp()
+    otp_storage[email] = otp
+
+    msg = Message('Your OTP Code', recipients=[email])
+    msg.body = f'Your OTP code is {otp}'
+    mail.send(msg)
+
+    return jsonify({'message': 'OTP sent'}), 200
+
+@app.route('/verify-otp', methods=['POST'])
+def verify_otp():
+    data = request.get_json()
+    email = data.get('email')
+    otp = data.get('otp')
+
+    if otp_storage.get(email) == otp:
+        return jsonify({'message': 'OTP verified'}), 200
+    else:
+        return jsonify({'error': 'Invalid OTP'}), 400
+
+@app.route('/reset-password', methods=['POST'])
+def reset_password():
+    data = request.get_json()
+    email = data.get('email')
+    new_password = data.get('password')
+
+    user = get_user(email)
+    if not user:
+        return jsonify({'error': 'User not found'}), 404
+
+    password_hash = generate_password_hash(new_password)
+    sql = "UPDATE users SET password = %s WHERE email = %s"
+    cursor.execute(sql, (password_hash, email))
+    db.commit()
+
+    return jsonify({'message': 'Password reset successful'}), 200
+
 app.register_blueprint(categories_blueprint)
 app.register_blueprint(meals_blueprint)
 app.register_blueprint(recipe_blueprint)
@@ -326,4 +389,4 @@ app.register_blueprint(all_categories_detect_blueprint)
 app.register_blueprint(all_meals_detect_blueprint)
 
 if __name__ == '__main__':
-    app.run(host='192.168.100.34', port=5000, debug=True)
+    app.run(host='192.168.0.192', port=5000, debug=True)

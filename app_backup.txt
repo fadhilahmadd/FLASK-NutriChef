@@ -326,4 +326,4 @@ app.register_blueprint(all_categories_detect_blueprint)
 app.register_blueprint(all_meals_detect_blueprint)
 
 if __name__ == '__main__':
-    app.run(host='192.168.100.34', port=5000, debug=True)
+    app.run(host='192.168.0.192', port=5000, debug=True)
