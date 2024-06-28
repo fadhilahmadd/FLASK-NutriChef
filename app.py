@@ -1,6 +1,4 @@
-import os
-import json
-import pymysql
+import os, json, pymysql
 from flask import Flask, render_template, request, jsonify, send_from_directory
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
@@ -16,7 +14,6 @@ from routes.categories_detect import categories_detect_blueprint
 from routes.meals_detect import meals_detect_blueprint
 from routes.all_categories_detect import all_categories_detect_blueprint
 from routes.all_meals_detect import all_meals_detect_blueprint
-from routes.meals_by_diseases import meals_by_diseases_blueprint
 
 app = Flask(__name__, static_folder='img')
 CORS(app)
@@ -90,12 +87,10 @@ def insert_user(username, email, password):
     cursor.execute(sql, (username, email, password))
     db.commit()
 
-
 def get_user(email):
     sql = "SELECT * FROM users WHERE email = %s"
     cursor.execute(sql, (email,))
     return cursor.fetchone()
-
 
 @app.route('/register', methods=['POST'])
 def register():
@@ -111,7 +106,6 @@ def register():
     insert_user(username, email, password_hash)
     return jsonify({'message': 'User registered successfully'}), 201
 
-
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
@@ -125,17 +119,14 @@ def login():
     token = create_access_token(identity=email, additional_claims={"sub": email}, expires_delta=False)
     return jsonify({'token': token}), 200
 
-
 @app.route('/logout', methods=['POST'])
 def logout():
     return jsonify({'message': 'Logout successful'}), 200
-
 
 def get_username(email):
     sql = "SELECT username FROM users WHERE email = %s"
     cursor.execute(sql, (email,))
     return cursor.fetchone()
-
 
 @app.route('/username/<string:email>', methods=['GET'])
 def get_username_by_email(email):
@@ -149,7 +140,6 @@ def get_username_by_email(email):
         return jsonify({'error': str(e)}), 500
 
 # --- Penyakit ---
-
 
 @app.route('/penyakit', methods=['POST'])
 @jwt_required()
@@ -166,7 +156,6 @@ def create_penyakit():
     except Exception as e:
         db.rollback()
         return jsonify({'error': str(e)}), 500
-
 
 @app.route('/penyakit', methods=['GET'])
 @jwt_required()
@@ -187,7 +176,6 @@ def get_all_penyakit():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-
 @app.route('/nama-penyakit', methods=['GET'])
 @jwt_required()
 def get_nama_penyakit():
@@ -205,7 +193,6 @@ def get_nama_penyakit():
         return jsonify(penyakit_list), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-
 
 @app.route('/penyakit/<int:id>', methods=['GET'])
 @jwt_required()
@@ -227,7 +214,6 @@ def get_penyakit(id):
         return jsonify({'error': str(e)}), 500
 
 # --- penyakit user ----
-
 
 @app.route('/penyakit_user', methods=['POST'])
 @jwt_required()
@@ -297,7 +283,6 @@ def get_user_penyakit():
         db = get_db_connection()
         cursor = db.cursor()
 
-        # Get the user id from the users table
         sql_user = "SELECT id FROM users WHERE email = %s"
         cursor.execute(sql_user, (user_email,))
         user = cursor.fetchone()
@@ -305,7 +290,6 @@ def get_user_penyakit():
             return jsonify({'error': 'User not found'}), 404
         user_id = user['id']
 
-        # Get penyakit_user entries for the current user
         sql_penyakit_user = """
         SELECT pu.id AS penyakit_user_id, pu.penyakit_id, p.nama, p.data
         FROM penyakit_user pu
@@ -340,7 +324,6 @@ app.register_blueprint(categories_detect_blueprint)
 app.register_blueprint(meals_detect_blueprint)
 app.register_blueprint(all_categories_detect_blueprint)
 app.register_blueprint(all_meals_detect_blueprint)
-app.register_blueprint(meals_by_diseases_blueprint)
 
 if __name__ == '__main__':
-    app.run(host='192.168.49.16', port=5000, debug=True)
+    app.run(host='192.168.100.34', port=5000, debug=True)

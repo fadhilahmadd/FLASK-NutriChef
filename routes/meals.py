@@ -9,7 +9,7 @@ def get_meals(category):
         meals = [
             {
                 "strMeal": "Daging Sapi Kecap",
-                "strMealThumb": "http://192.168.49.16:5000/img/daging-kecap.png",
+                "strMealThumb": "http://192.168.100.34:5000/img/daging-kecap.png",
                 "idMeal": "1101"
             },
             {
@@ -63,13 +63,23 @@ def get_meals(category):
         meals = [
             {
                 "strMeal": "Bubur Manado (Tinutuan)",
-                "strMealThumb": "http://192.168.49.16:5000/img/bubur-manado.jpeg",
+                "strMealThumb": "http://192.168.100.34:5000/img/bubur-manado.jpeg",
                 "idMeal": "1401"
             },
             {
                 "strMeal": "Cap Cay",
-                "strMealThumb": "http://192.168.49.16:5000/img/capcay.jpeg",
+                "strMealThumb": "http://192.168.100.34:5000/img/capcay.jpeg",
                 "idMeal": "1402"
+            },
+            {
+                "strMeal": "Tumis Buncis",
+                "strMealThumb": "http://192.168.100.34:5000/img/tumis-buncis.jpeg",
+                "idMeal": "1403"
+            },
+            {
+                "strMeal": "Tumis Brokoli Jamur Tiram",
+                "strMealThumb": "http://192.168.100.34:5000/img/tumis-brokoli-jamur-tiram.jpeg",
+                "idMeal": "1404"
             },
         ]
     elif category == 'Sarapan':
