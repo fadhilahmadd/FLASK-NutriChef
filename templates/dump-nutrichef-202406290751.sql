@@ -27,7 +27,7 @@ CREATE TABLE `penyakit` (
   `nama` varchar(255) NOT NULL,
   `data` json NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `penyakit` (
 
 LOCK TABLES `penyakit` WRITE;
 /*!40000 ALTER TABLE `penyakit` DISABLE KEYS */;
-INSERT INTO `penyakit` VALUES (7,'Diabetes','[{\"idMeal\": \"1101\", \"strMeal\": \"Daging Sapi Kecap\", \"strMealThumb\": \"http://34.50.65.111:5000/img/daging-kecap.png\"}, {\"idMeal\": \"1102\", \"strMeal\": \"Beef and Oyster pie\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/wrssvt1511556563.jpg\"}, {\"idMeal\": \"1103\", \"strMeal\": \"Beef Asado\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/pkopc31683207947.jpg\"}, {\"idMeal\": \"1201\", \"strMeal\": \"Ayam Percik\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/020z181619788503.jpg\"}, {\"idMeal\": \"1202\", \"strMeal\": \"Brown Stew Chicken\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg\"}, {\"idMeal\": \"1203\", \"strMeal\": \"Chick-Fil-A Sandwich\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/sbx7n71587673021.jpg\"}, {\"idMeal\": \"1401\", \"strMeal\": \"Bubur Manado (Tinutuan)\", \"strMealThumb\": \"http://34.50.65.111:5000/img/bubur-manado.jpeg\"}, {\"idMeal\": \"1402\", \"strMeal\": \"Cap Cay\", \"strMealThumb\": \"http://34.50.65.111:5000/img/capcay.jpeg\"}]'),(8,'Jantung','[{\"idMeal\": \"1101\", \"strMeal\": \"Daging Sapi Kecap\", \"strMealThumb\": \"http://34.50.65.111:5000/img/daging-kecap.png\"}, {\"idMeal\": \"1102\", \"strMeal\": \"Beef and Oyster pie\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/wrssvt1511556563.jpg\"}, {\"idMeal\": \"1103\", \"strMeal\": \"Beef Asado\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/pkopc31683207947.jpg\"}, {\"idMeal\": \"1201\", \"strMeal\": \"Ayam Percik\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/020z181619788503.jpg\"}, {\"idMeal\": \"1202\", \"strMeal\": \"Brown Stew Chicken\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg\"}, {\"idMeal\": \"1203\", \"strMeal\": \"Chick-Fil-A Sandwich\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/sbx7n71587673021.jpg\"}, {\"idMeal\": \"1401\", \"strMeal\": \"Bubur Manado (Tinutuan)\", \"strMealThumb\": \"http://34.50.65.111:5000/img/bubur-manado.jpeg\"}, {\"idMeal\": \"1402\", \"strMeal\": \"Cap Cay\", \"strMealThumb\": \"http://34.50.65.111:5000/img/capcay.jpeg\"}]');
+INSERT INTO `penyakit` VALUES (7,'Diabetes','[{\"idMeal\": \"1101\", \"strMeal\": \"Daging Sapi Kecap\", \"strMealThumb\": \"http://34.101.155.224:5000/img/daging-kecap.png\"}, {\"idMeal\": \"1102\", \"strMeal\": \"Beef and Oyster pie\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/wrssvt1511556563.jpg\"}, {\"idMeal\": \"1103\", \"strMeal\": \"Beef Asado\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/pkopc31683207947.jpg\"}, {\"idMeal\": \"1201\", \"strMeal\": \"Ayam Percik\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/020z181619788503.jpg\"}, {\"idMeal\": \"1202\", \"strMeal\": \"Brown Stew Chicken\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg\"}, {\"idMeal\": \"1203\", \"strMeal\": \"Chick-Fil-A Sandwich\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/sbx7n71587673021.jpg\"}, {\"idMeal\": \"1401\", \"strMeal\": \"Bubur Manado (Tinutuan)\", \"strMealThumb\": \"http://34.101.155.224:5000/img/bubur-manado.jpeg\"}, {\"idMeal\": \"1402\", \"strMeal\": \"Cap Cay\", \"strMealThumb\": \"http://34.101.155.224:5000/img/capcay.jpeg\"}]'),(8,'Jantung','[{\"idMeal\": \"1101\", \"strMeal\": \"Daging Sapi Kecap\", \"strMealThumb\": \"http://34.101.155.224:5000/img/daging-kecap.png\"}, {\"idMeal\": \"1102\", \"strMeal\": \"Beef and Oyster pie\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/wrssvt1511556563.jpg\"}, {\"idMeal\": \"1103\", \"strMeal\": \"Beef Asado\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/pkopc31683207947.jpg\"}, {\"idMeal\": \"1201\", \"strMeal\": \"Ayam Percik\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/020z181619788503.jpg\"}, {\"idMeal\": \"1202\", \"strMeal\": \"Brown Stew Chicken\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg\"}, {\"idMeal\": \"1203\", \"strMeal\": \"Chick-Fil-A Sandwich\", \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/sbx7n71587673021.jpg\"}, {\"idMeal\": \"1401\", \"strMeal\": \"Bubur Manado (Tinutuan)\", \"strMealThumb\": \"http://34.101.155.224:5000/img/bubur-manado.jpeg\"}, {\"idMeal\": \"1402\", \"strMeal\": \"Cap Cay\", \"strMealThumb\": \"http://34.101.155.224:5000/img/capcay.jpeg\"}]');
 /*!40000 ALTER TABLE `penyakit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,7 +56,7 @@ CREATE TABLE `penyakit_user` (
   KEY `penyakit_id` (`penyakit_id`),
   CONSTRAINT `penyakit_user_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `penyakit_user_ibfk_2` FOREIGN KEY (`penyakit_id`) REFERENCES `penyakit` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -80,7 +80,7 @@ CREATE TABLE `recipe_categories` (
   `category` varchar(255) NOT NULL,
   `data` json NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,9 +104,9 @@ CREATE TABLE `users` (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
